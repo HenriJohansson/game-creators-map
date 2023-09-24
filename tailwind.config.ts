@@ -1,3 +1,13 @@
 module.exports = {
-  content: ["./*.{html,js,vue}", "./assets/*.css"],
+  content: [
+    "./src/*",
+    "./assets/*.css",
+    "./assets/*.scss",
+    "./src/**/*.{html,js,jsx,ts,tsx,vue}",
+  ],
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+    },
+  },
 };

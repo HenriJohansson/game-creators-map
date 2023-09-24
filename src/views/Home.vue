@@ -1,20 +1,32 @@
 <template>
   <div class="home">
-    <Map />
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <CreateMarker />
+    <div class="map">
+      <Map />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import Map from "@/components/Map.vue";
+import CreateMarker from "@/components/CreateMarker.vue";
 export default defineComponent({
   name: "Home",
   components: {
+    CreateMarker,
     Map,
-    HelloWorld,
   },
 });
 </script>
+
+<style scoped>
+div .home {
+  display: flex;
+  flex-direction: row;
+}
+div .map {
+  width: 66%;
+}
+</style>
