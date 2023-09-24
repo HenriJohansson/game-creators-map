@@ -1,23 +1,34 @@
 <template>
   <div class="home">
-    <CreateMarker />
+    <CreateMarker @updateNewMarkerText="updateNewMarkerText" />
     <div class="map">
-      <Map />
+      <Map :newMarkerText="newMarkerText" @updateNewMarkerText="updateNewMarkerText" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from "vue";
-import Map from "@/components/Map.vue";
-import CreateMarker from "@/components/CreateMarker.vue";
-export default defineComponent({
-  name: "Home",
+<script>
+
+import { defineComponent } from "vue";
+import Map from "../components/Map.vue";
+import CreateMarker from "../components/CreateMarker.vue";
+
+export default {
   components: {
-    CreateMarker,
     Map,
+    CreateMarker,
   },
-});
+  data() {
+    return {
+      newMarkerText: "",
+    };
+  },
+  methods: {
+    updateNewMarkerText(newText) {
+      this.newMarkerText = newText;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -25,6 +36,7 @@ div .home {
   display: flex;
   flex-direction: row;
 }
+
 div .map {
   width: 66%;
 }

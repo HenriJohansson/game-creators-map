@@ -23,6 +23,6 @@ module.exports = {
     "camelcase": 0,
     "import/extensions": 0,
     "@typescript-eslint/no-redeclare": 0,
-    "prettier/prettier": "error"
+    "prettier/prettier": 0
   },
 };
