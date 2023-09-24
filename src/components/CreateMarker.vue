@@ -6,14 +6,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     newMarkerText: String,
   },
   methods: {
-    updateNewMarkerText(event) {
-      this.$emit("updateNewMarkerText", event.target.value);
+    updateNewMarkerText(event: Event) :void {
+      if(event.target){
+        this.$emit("updateNewMarkerText", (event.target as HTMLInputElement).value);
+      }
     },
   },
 };

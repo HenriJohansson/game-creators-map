@@ -10,8 +10,8 @@
         <button @click="placeMarker">Place Marker</button>
     </div>
 </template>
-  
-<script>
+
+<script lang="ts">
 import {
     LMap,
     LTileLayer,
@@ -30,27 +30,31 @@ export default {
         LMarker,
         LPopup,
     },
-    data() {
-        return {
-            zoom: 2,
-            markers: [],
-        };
+    data(): { zoom: number; markers: { position: [number, number]; text: string; }[]; } {
+      return {
+        zoom: 2,
+        markers: [],
+      };
     },
     methods: {
-        log(a) {
-            console.log(a);
+        log(a: string): void {
+          console.log(a);
         },
-        placeMarker() {
-            const text = this.newMarkerText.trim();
-            if (text !== "") {
-                this.markers.push({
-                    position: [51, 51],
-                    text: text,
-                });
-                this.$emit("updateNewMarkerText", "");
-            }
+        placeMarker(): void {
+          let text = "";
+          if(this.newMarkerText){
+            text = this.newMarkerText.trim();
+          }
+
+          if (text !== "") {
+            this.markers.push({
+              position: [51, 51],
+              text: text,
+            });
+            this.$emit("updateNewMarkerText", "");
+          }
         },
     },
 };
 </script>
-<style></style>  
+<style></style>

@@ -23,11 +23,11 @@ export default defineComponent({
     };
   },
   methods: {
-    updateNewMarkerText(newText) {
+    updateNewMarkerText(newText: string) {
       this.newMarkerText = newText;
     },
   },
-};
+});
 </script>
 
 <style scoped>
