@@ -18,11 +18,12 @@ import {
     LMarker,
     LPopup,
 } from "@vue-leaflet/vue-leaflet";
-import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css"
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
     props: {
-        newMarkerText: String,
+      newMarkerText: String,
     },
     components: {
         LMap,
@@ -55,6 +56,6 @@ export default {
           }
         },
     },
-};
+});
 </script>
 <style></style>

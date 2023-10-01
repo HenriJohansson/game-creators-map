@@ -6,19 +6,22 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  props: {
-    newMarkerText: String,
-  },
-  methods: {
-    updateNewMarkerText(event: Event) :void {
-      if(event.target){
-        this.$emit("updateNewMarkerText", (event.target as HTMLInputElement).value);
-      }
-    },
-  },
-};
+<script setup lang="ts">
+import { defineEmits, defineProps } from 'vue';
+
+defineProps<{
+  newMarkerText?: string,
+}>()
+
+const emit = defineEmits<{
+  (e: 'updateNewMarkerText', newMarkerText: string ): void
+}>()
+
+const updateNewMarkerText = (event: Event) :void => {
+  if(event.target){
+    emit("updateNewMarkerText", (event.target as HTMLInputElement).value);
+  }
+}
 </script>
 
 <style scoped>
