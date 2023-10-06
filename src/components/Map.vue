@@ -58,4 +58,6 @@ export default defineComponent({
     },
 });
 </script>
-<style></style>
+<style>
+ .leaflet-pane { z-index: 0 !important; }
+</style>

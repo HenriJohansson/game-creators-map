@@ -1,5 +1,8 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Creators</h1>
+    <p>
+      Henri Johansson, Miro
+    </p>
   </div>
 </template>

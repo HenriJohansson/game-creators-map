@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Login></Login>
     <CreateMarker @updateNewMarkerText="updateNewMarkerText" />
     <div class="map">
       <Map :newMarkerText="newMarkerText" @updateNewMarkerText="updateNewMarkerText" />
@@ -10,12 +11,14 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import Map from "@/components/Map.vue";
+import Login from "@/components/Login.vue"
 import CreateMarker from "@/components/CreateMarker.vue";
 export default defineComponent({
   name: "Home",
   components: {
     Map,
     CreateMarker,
+    Login,
   },
   data() {
     return {
