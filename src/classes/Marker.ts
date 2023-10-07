@@ -1,65 +1,52 @@
 import { Point } from "geojson";
+import Mark from "@/interfaces/Mark"
 class Marker {
-  private marker_name: string;
-  private description: string;
-  private location: Point;
-  private user: string;
-  private creation_date: Date;
+  private mark: Mark;
 
-  constructor(
-    marker_name: string,
-    description: string,
-    location: Point,
-    user: string,
-    creation_date: Date
-  ) {
-    this.marker_name = marker_name;
-    this.description = description;
-    this.location = location;
-    this.user = user;
-    this.creation_date = creation_date;
+  constructor( mark: Mark) {
+    this.mark = mark;
   }
 
   // Getter methods
   getMarkerName(): string {
-    return this.marker_name;
+    return this.mark.marker_name;
   }
 
   getDescription(): string {
-    return this.description;
+    return this.mark.description;
   }
 
   getLocation(): Point {
-    return this.location;
+    return this.mark.location;
   }
 
   getUser(): string {
-    return this.user;
+    return this.mark.user;
   }
 
   getCreationDate(): Date {
-    return this.creation_date;
+    return this.mark.creation_date;
   }
 
   // Setter methods
   setMarkerName(marker_name: string): void {
-    this.marker_name = marker_name;
+    this.mark.marker_name = marker_name;
   }
 
   setDescription(description: string): void {
-    this.description = description;
+    this.mark.description = description;
   }
 
   setLocation(location: Point): void {
-    this.location = location;
+    this.mark.location = location;
   }
 
   setUser(user: string): void {
-    this.user = user;
+    this.mark.user = user;
   }
 
   setCreationDate(creation_date: Date): void {
-    this.creation_date = creation_date;
+    this.mark.creation_date = creation_date;
   }
 }
 
