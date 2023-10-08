@@ -1,18 +1,19 @@
 <template>
   <div class="home">
     <Login></Login>
-    <CreateMarker @updateNewMarkerText="updateNewMarkerText" />
+    <CreateMarker :key="reloadMap"/>
     <div class="map">
-      <Map :newMarkerText="newMarkerText" @updateNewMarkerText="updateNewMarkerText" />
+      <Map @reload="creatingAnotherMarker()" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, ref} from "vue";
 import Map from "@/components/Map.vue";
 import Login from "@/components/Login.vue"
 import CreateMarker from "@/components/CreateMarker.vue";
+import { orderedMarkerFactorySingleton } from "@/classes/OrderedMarkFactory";
 export default defineComponent({
   name: "Home",
   components: {
@@ -22,12 +23,13 @@ export default defineComponent({
   },
   data() {
     return {
-      newMarkerText: "",
+      defaultMark: ref(orderedMarkerFactorySingleton.createDefaultOrderedMarker()),
+      reloadMap: 0,
     };
   },
   methods: {
-    updateNewMarkerText(newText: string) {
-      this.newMarkerText = newText;
+    creatingAnotherMarker() {
+      this.reloadMap += 1;
     },
   },
 });

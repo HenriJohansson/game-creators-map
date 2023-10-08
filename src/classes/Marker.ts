@@ -1,5 +1,5 @@
 import { Point } from "geojson";
-import Mark from "@/interfaces/Mark"
+import { Mark } from "@/interfaces/Mark"
 class Marker {
   private mark: Mark;
 

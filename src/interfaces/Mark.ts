@@ -6,8 +6,13 @@ interface Mark {
   user: string;
   creation_date: Date;
 }
-interface OrderedMark extends Mark {
-  placement: number
+interface UUIDMark extends Mark {
+  id: string
+  marker_name: string;
+  description: string;
+  location: Point;
+  user: string;
+  creation_date: Date;
 }
 
-export {Mark, OrderedMark};
+export {Mark, UUIDMark};
