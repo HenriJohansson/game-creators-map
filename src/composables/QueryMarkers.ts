@@ -2,16 +2,17 @@ import { useQuery } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 import { provideApolloClient } from "@vue/apollo-composable";
 import { apolloClient } from '../apolloclient';
+provideApolloClient(apolloClient);
+
 export const Queries = {
-queryForMarkers: provideApolloClient(apolloClient)(() => useQuery(gql`
-  query getMarkers {
-    markers {
-      id
-      marker_name
-      location {
-        coordinates
+  queryForMarkers: gql`
+    query {
+      markers {
+        id
+        marker_name
+        location {
+          coordinates
+        }
       }
-    }
-  }`
-))
+    }`
 }

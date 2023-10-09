@@ -6,7 +6,7 @@
                 <l-popup>{{ marker.marker_name }}</l-popup>
             </l-marker>
         </l-map>
-        <button @click="logMarkers"></button>
+        <button @click="logMarkers">TestQuery</button>
     </div>
 </template>
 
@@ -19,8 +19,9 @@ import {
     LPopup,
 } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css"
-import { defineEmits, ref } from "vue";
+import { defineEmits, ref, Ref,watch } from "vue";
 import { Queries } from '@/composables/QueryMarkers'
+import { useQuery } from "@vue/apollo-composable";
 
 const centerRef = ref<[number, number]>([47.41322, -1.219482])
 const zoom = 2;
@@ -38,9 +39,15 @@ const placeOnClick = (coordinates: [number, number] | undefined): void => {
     }
   }
 };
+
 const logMarkers = () => {
-  console.log("Found Markers: ",Queries.queryForMarkers)
+  const { result } = useQuery(Queries.queryForMarkers);
+
+  watch(result, ()=> {
+    console.log("Found Markers: ", result.value);
+  })
 }
+
 </script>
 <style>
  .leaflet-pane { z-index: 0 !important; }
