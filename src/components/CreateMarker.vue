@@ -24,7 +24,6 @@ onMounted(() => {
   const mark: UUIDMark = orderedMarkerFactorySingleton.createDefaultOrderedMarker()
   mark.id = currentCreationID;
   watch([nameRef, descriptionRef], ([newNameRef, newDescriptionRef]) =>{
-    console.log("watch triggered")
     if(newNameRef)
       mark.marker_name = newNameRef;
     if(newDescriptionRef){

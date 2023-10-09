@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <Login></Login>
-    <CreateMarker :key="reloadMap"/>
+    <CreateMarker :key="reloadCreator"/>
     <div class="map">
-      <Map @reload="creatingAnotherMarker()" />
+      <Map @reload="reloadCreateMarker()" />
     </div>
   </div>
 </template>
@@ -24,12 +24,12 @@ export default defineComponent({
   data() {
     return {
       defaultMark: ref(orderedMarkerFactorySingleton.createDefaultOrderedMarker()),
-      reloadMap: 0,
+      reloadCreator: 0,
     };
   },
   methods: {
-    creatingAnotherMarker() {
-      this.reloadMap += 1;
+    reloadCreateMarker() {
+      this.reloadCreator += 1;
     },
   },
 });

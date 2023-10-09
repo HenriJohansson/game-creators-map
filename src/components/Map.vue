@@ -6,6 +6,7 @@
                 <l-popup>{{ marker.marker_name }}</l-popup>
             </l-marker>
         </l-map>
+        <button @click="logMarkers"></button>
     </div>
 </template>
 
@@ -19,6 +20,7 @@ import {
 } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css"
 import { defineEmits, ref } from "vue";
+import { Queries } from '@/composables/QueryMarkers'
 
 const centerRef = ref<[number, number]>([47.41322, -1.219482])
 const zoom = 2;
@@ -36,6 +38,9 @@ const placeOnClick = (coordinates: [number, number] | undefined): void => {
     }
   }
 };
+const logMarkers = () => {
+  console.log("Found Markers: ",Queries.queryForMarkers)
+}
 </script>
 <style>
  .leaflet-pane { z-index: 0 !important; }
